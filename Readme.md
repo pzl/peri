@@ -19,5 +19,6 @@ The device claims to be multi-touch with the appropriate driver under Windows 7.
 
 Requires
 --------
-Libusb 1.0+
-xdotool (to simulate keyboard and mouse movements in user space)
+
+- Libusb 1.0+
+- xdotool (to simulate keyboard and mouse movements in user space)
