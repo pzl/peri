@@ -16,3 +16,8 @@ Adds support for the following 3 keys:
 The channel buttons are sent to linux properly, but as keycodes 410 and 411. The linux kernel up to this point does not support keycodes above 255, so the kernel was discarding these keys. The kernel didn't seem to be registering any key input for the keyboard button, but it was being sent over USB, so we can pick that up.
 
 The device claims to be multi-touch with the appropriate driver under Windows 7. I was not able to determine any input from this device sniffing USB traffic to indicate that or write support under linux _yet_. 
+
+Requires
+--------
+Libusb 1.0+
+xdotool (to simulate keyboard and mouse movements in user space)
