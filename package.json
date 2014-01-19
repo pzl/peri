@@ -1,0 +1,19 @@
+{
+	"name": "peri",
+	"description": "A simple configurable userspace driver for a Perixx Periboard 717",
+	"preferGlobal": true,
+	"version": "0.1.0",
+	"author": "Dan Panzarella",
+	"scripts": {
+		"start": "node ./peri.js",
+		"test": "",
+		"restart": "node ./reset.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pzl/peri.git"
+	},
+	"dependencies": {
+		"usb": "0.3.x"
+	}
+}
