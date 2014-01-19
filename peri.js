@@ -307,11 +307,12 @@ function mouse(d){
 
 }
 
+//printout packet data
 function loggy(d){
     console.log(d.toString('hex'));
 }
         
-
+//set up an interface of a device
 function setup(device,face){
     var end = device.interface(face).endpoints[0].address,
         fn = keyboard;
@@ -328,6 +329,7 @@ function setup(device,face){
     device.interface(face).endpoint(end).startStream(3,10);
 }
 
+//clean up just an interface of a device
 function teardown(device,face,cb){
     var end=device.interface(face).endpoints[0].address;
     device.interface(face).endpoint(end).stopStream();
@@ -344,6 +346,7 @@ function teardown(device,face,cb){
     },1000);
 }
 
+//tidy up the device when closing
 function cleanup(cb){
     teardown(peri.device,0,function(){
         teardown(peri.device,1,function(){
@@ -357,8 +360,10 @@ function cleanup(cb){
     });
 }
 
+//keeps the process running
 process.stdin.resume();
 
+//see if we can catch an error and cleanup before crashing horribly
 process.on('uncaughtException',function(e){
     console.log('uncaught exception, cleaning up');
     console.log(e);
@@ -366,6 +371,8 @@ process.on('uncaughtException',function(e){
         process.exit();
     });
 });
+
+//catch ctrl-C and perform cleanup (reattaching kernel driver to device)
 process.on('SIGINT',function(){
     console.log('sigint caught, cleaning up')
     cleanup(function(){
