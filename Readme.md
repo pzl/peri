@@ -22,3 +22,7 @@ Requires
 
 - Libusb 1.0+
 - xdotool (to simulate keyboard and mouse movements in user space)
+
+
+debian dependency install:
+sudo apt-get install build-essential pkg-config libusb-1.0-0-dev
